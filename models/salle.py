@@ -12,3 +12,4 @@ class salle:
         print(f"Capacité: {self.capacite}")
 
         print("\n")
+    def __str__(self):
