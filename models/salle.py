@@ -10,3 +10,5 @@ class salle:
         print(f"Libellé: {self.libelle}")
         print(f"Type de salle: {self.type_salle}")
         print(f"Capacité: {self.capacite}")
+
+        print("\n")
