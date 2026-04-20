@@ -132,7 +132,5 @@ class ViewSalles(ctk.CTk):
         self.entry_Type.delete(0, "end")
         self.entry_Capacite.delete(0, "end")
 
-if __name__ == '__main__':
-    app = ViewSalles()
-    app.mainloop()
-            
+
+
