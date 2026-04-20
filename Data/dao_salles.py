@@ -72,3 +72,37 @@ class dataSalles:
 
         cursor.close()
         conn.close()
+
+    def get_one_salle(self, code):
+        conn = self.get_connexion()
+        cursor = conn.cursor()
+
+        query = "SELECT code, libelle, type_salle, capacite FROM salles WHERE code = %s"
+        values = (code,)
+        cursor.execute(query, values)
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        if result:
+            return salle(*result)
+        else:
+            return None
+    
+    def get_all_salles(self):
+        conn = self.get_connexion()
+        cursor = conn.cursor()
+
+        query = "SELECT code, libelle, type_salle, capacite FROM salles"
+        cursor.execute(query)
+        results = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        salles = []
+        for Element in results:
+            salles.append(salle(*Element))
+        return salles
+
