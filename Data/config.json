@@ -5,4 +5,3 @@
   "database": "db_salles"
 }
 
-from views.view_salles import ViewSalles
