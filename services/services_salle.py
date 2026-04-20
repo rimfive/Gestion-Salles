@@ -46,4 +46,9 @@ class ServiceSalle:
             print(f"Erreur lors de la récupération: {e}")
             return None
 
-    
+    def get_all_salles(self):
+        try:
+            return self.dao.get_all_salles()
+        except Exception as e:
+            print(f"Erreur lors de la récupération: {e}")
+            return []
