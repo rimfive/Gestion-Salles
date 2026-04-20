@@ -39,4 +39,16 @@ class ServiceSalle:
         except Exception as e:
             return False, f"Erreur lors de la suppression: {e}"
 
-    
+    def get_salle(self, code):
+        try:
+            return self.dao.get_one_salle(code)
+        except Exception as e:
+            print(f"Erreur lors de la récupération: {e}")
+            return None
+
+    def get_all_salles(self):
+        try:
+            return self.dao.get_all_salles()
+        except Exception as e:
+            print(f"Erreur lors de la récupération: {e}")
+            return []
