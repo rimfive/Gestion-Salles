@@ -147,9 +147,13 @@ class ViewSalles(ctk.CTk):
             self.entry_Capacite.delete(0, "end")
             self.entry_Capacite.insert(0, str(values[3]))
 
+        else:
+            self.clear_fields()
 
 
 if __name__ == '__main__':
     app = ViewSalles()
     app.mainloop()
     
+
+
