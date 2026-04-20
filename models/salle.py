@@ -11,4 +11,4 @@ class salle:
         print(f"Type de salle: {self.type_salle}")
         print(f"Capacité: {self.capacite}")
 
-        print("\n")
+     
