@@ -58,6 +58,7 @@ class ViewSalles(ctk.CTk):
         self.tree.heading("Type", text="Type")
         self.tree.heading("Capacité", text="Capacité")
         self.tree.pack(fill="both", expand=True)
+        self.tree.bind("<ButtonRelease-1>", self.on_tree_select)
 
         self.liste_salles()
 
@@ -123,7 +124,7 @@ class ViewSalles(ctk.CTk):
 
     def liste_salles(self):
         self.tree.delete(*self.tree.get_children())
-        for s in self.service.get_salles():
+        for s in self.service.get_all_salles():
             self.tree.insert("", "end", values=(s.code, s.libelle, s.type_salle, s.capacite))
 
     def clear_fields(self):
@@ -131,6 +132,20 @@ class ViewSalles(ctk.CTk):
         self.entry_Libelle.delete(0, "end")
         self.entry_Type.delete(0, "end")
         self.entry_Capacite.delete(0, "end")
+
+    def on_tree_select(self, event):
+        selected = self.tree.selection()
+        if selected:
+            item = self.tree.item(selected[0])
+            values = item['values']
+            self.entry_Code.delete(0, "end")
+            self.entry_Code.insert(0, str(values[0]))
+            self.entry_Libelle.delete(0, "end")
+            self.entry_Libelle.insert(0, str(values[1]))
+            self.entry_Type.delete(0, "end")
+            self.entry_Type.insert(0, str(values[2]))
+            self.entry_Capacite.delete(0, "end")
+            self.entry_Capacite.insert(0, str(values[3]))
 
 
 
