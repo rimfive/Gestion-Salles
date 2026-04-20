@@ -10,7 +10,7 @@ class ServiceSalle:
         if salle.code == "" or salle.libelle == "" or salle.type_salle == "" or salle.capacite <= 0:
             return False, "Champs vides ou capacité invalide"
 
-        # Vérifier si la salle existe déjà
+        
         existing = self.dao.get_one_salle(salle.code)
         if existing:
             return False, "Salle avec ce code existe déjà"
@@ -46,9 +46,4 @@ class ServiceSalle:
             print(f"Erreur lors de la récupération: {e}")
             return None
 
-    def get_salles(self):
-        try:
-            return self.dao.get_all_salles()
-        except Exception as e:
-            print(f"Erreur lors de la récupération: {e}")
-            return []
+    
