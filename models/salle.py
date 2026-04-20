@@ -5,5 +5,8 @@ class salle:
         self.type_salle = type_salle
         self.capacite = capacite
 
-    
-       
+    def afficher(self):
+        print(f"Code: {self.code}")
+        print(f"Libellé: {self.libelle}")
+        print(f"Type de salle: {self.type_salle}")
+        print(f"Capacité: {self.capacite}")
